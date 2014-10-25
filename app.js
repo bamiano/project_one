@@ -1,17 +1,30 @@
 var db = require("./models/index");
 var express = require("express"),
-app = express();
-require ("locus");
-require ("locus");
-app.set('view engine', 'ejs');
+	bodyParser = require("body-parser"),
+  passport = require("passport"),
+  passportLocal = require("passport-local"),
+  cookieParser = require("cookie-parser"),
+  session = require("cookie-session"),
+  db = require("./models/index"),
+  flash = require('connect-flash'),
+	app = express();
+	require ("locus");
+	app.set('view engine', 'ejs');
 
 app.use(express.static(__dirname + '/public'));
 
-db.User.create({})
+// db.User.create({})
 
 app.get('/', function(req, res) {
-var name = "Brent";
-res.render ('index',{username:name});	
+	res.render ('home');	
+});
+
+app.get('/login', function(req, res){
+	res.render ('login');
+});
+
+app.get('/signup', function(req, res){
+	res.render ('signup');
 });
 
 app.get('*', function(req, res) {
