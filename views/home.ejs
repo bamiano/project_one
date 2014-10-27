@@ -1,19 +1,7 @@
 <% include partials/header.ejs %>
 
-	<h1> Welcome to Incriminate</h1>
-		<p>
-			Play a practical joke on your friend with incriminate! 
-		</p>
+<h1>You've made it!</h1>
 
-	<% if (typeof message !== 'undefined') { %>
-		<div class = "alert alert-success">
-      <%= message %>
-    </div>
-	<% } %>
-
-	<a href="signup" class = "btn btn-primary btn-lg">Sign up</a>
-	&nbsp
-
-	<a href="login" class = "btn btn-primary btn-lg">Log in</a>
+<a class ="btn btn-danger" href="/logout">Logout here</a>
 
 <% include partials/footer.ejs %>
