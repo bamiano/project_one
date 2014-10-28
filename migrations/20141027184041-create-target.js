@@ -21,6 +21,10 @@ module.exports = {
       updatedAt: {
         allowNull: false,
         type: DataTypes.DATE
+      },
+      crimeType: {
+        allowNull: false,
+        type: DataTypes.STRING
       }
     }).done(done);
   },

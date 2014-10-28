@@ -7,9 +7,13 @@
 		Please enter a name and choose a crime type.
 	</p>
 <% crimeData.forEach(function (data) {%>
-<li>
-	<%= data.properties.crime_type %>
-</li>
+
+	<h4><li>Arrest Category: <%= data.properties.crime_type %></li></h4>
+	<li> Date and Time of Incident: <%= data.properties.date_time %></li>
+
+	<li>Description of Incident: <%= data.properties.description %></li>
+	<li>Case Number: <%= data.properties.case_number %></li>
+
 <%})%>
 
 

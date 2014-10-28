@@ -56,7 +56,7 @@ app.get('/', routeMiddleware.preventLoginSignup, function(req,res){
 });
 
 app.get('/search', function(req, res){
-	console.log("TARGET", req.query.targetName);
+	// console.log("TARGET", req.query.targetName);
 	// this is how we grab information from the submit form
 	// the req is what is coming in. express is taking care of the .query .movieTitle is where we are pulling the information from
 	// Grab the movie title from the URL query string.
@@ -65,14 +65,14 @@ app.get('/search', function(req, res){
   
 // Build the URL that we're going to call.
   var url = "http://sanfrancisco.crimespotting.org/crime-data?format=json&count=50";
-// Call the OMDB API searching for the movie.
+// Call the SFPD API searching for the crime.
   request(url, function (error, response, body) {
   if (!error && response.statusCode == 200) {
   	// JSON.parse turns a string into an object
   	var obj = JSON.parse(body);
     // res.send(obj.Search); 
     res.render("search.ejs", {crimeData: obj.features});
-    // we passed data to our templates by adding a second object. objects have to be key value pairs. movieList is arbitrary and can be named anything. it is the key
+    // we passed data to our templates by adding a second object. objects have to be key value pairs. 
   	}
 	});
 });

@@ -3,7 +3,7 @@
 module.exports = function(sequelize, DataTypes) {
   var Crime = sequelize.define("Crime", {
     id: DataTypes.INTEGER,
-    coordinates: DataTypes.NUMBER,
+    coordinates: DataTypes.FLOAT,
     crime_type: DataTypes.STRING,
     date_time: DataTypes.STRING,
     description: DataTypes.STRING,
