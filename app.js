@@ -11,6 +11,7 @@ var express = require("express"),
 	require ("locus");
 	var morgan = require('morgan');
   var routeMiddleware = require("./config/routes");
+  var request = require("request");
 	
 
 app.use(express.static(__dirname + '/public'));
@@ -52,6 +53,28 @@ passport.deserializeUser(function(id, done){
 });
 app.get('/', routeMiddleware.preventLoginSignup, function(req,res){
     res.render('index');
+});
+
+app.get('/search', function(req, res){
+	console.log("TARGET", req.query.targetName);
+	// this is how we grab information from the submit form
+	// the req is what is coming in. express is taking care of the .query .movieTitle is where we are pulling the information from
+	// Grab the movie title from the URL query string.
+	// var searchTerm = req.query.crimeData;
+  
+  
+// Build the URL that we're going to call.
+  var url = "http://sanfrancisco.crimespotting.org/crime-data?format=json&count=50";
+// Call the OMDB API searching for the movie.
+  request(url, function (error, response, body) {
+  if (!error && response.statusCode == 200) {
+  	// JSON.parse turns a string into an object
+  	var obj = JSON.parse(body);
+    // res.send(obj.Search); 
+    res.render("search.ejs", {crimeData: obj.features});
+    // we passed data to our templates by adding a second object. objects have to be key value pairs. movieList is arbitrary and can be named anything. it is the key
+  	}
+	});
 });
 
 app.get('/signup', routeMiddleware.preventLoginSignup, function(req,res){

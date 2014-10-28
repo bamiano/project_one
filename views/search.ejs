@@ -1,0 +1,17 @@
+<% include partials/header.ejs %>
+
+
+
+<h1>Start incriminating now!</h1>
+	<p>
+		Please enter a name and choose a crime type.
+	</p>
+<% crimeData.forEach(function (data) {%>
+<li>
+	<%= data.properties.crime_type %>
+</li>
+<%})%>
+
+
+
+<% include partials/footer.ejs %>
