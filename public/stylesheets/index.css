@@ -1,0 +1,15 @@
+body { 
+  background: url(http://blog.pennlive.com/midstate_impact/2008/02/_423688802072005.jpg) no-repeat center center fixed; 
+  -webkit-background-size: cover;
+  -moz-background-size: cover;
+  -o-background-size: cover;
+  background-size: cover;
+}
+
+h1 {
+	color: #c6c386;
+	font-size: 50px;
+}
+
+
+

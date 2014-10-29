@@ -1,6 +1,8 @@
 <% include partials/header.ejs %>
 
-	<h1>Login </h1>
+<link rel="stylesheet" type="text/css" href="/stylesheets/login.css"/>
+
+	<h1>Login</h1>
 
 	<% if (message.length > 0) { %>
 		<div class = "alert alert-danger">
@@ -10,14 +12,14 @@
 		<form action="/login" method = "post">
 
 			<p>
-				<label for="user">Username:</label> <input type="text" name="username" id="user" autofocus>
+				<label class="userpass" for="user">Username:</label> <input type="text" name="username" id="user" placeholder="Please enter username"autofocus>
 			</p>
 			<p>
-				<label for="pass">Password:</label> <input type="password" name="password" id="pass">
+				<label class="userpass" for="pass">Password:</label> <input type="password" name="password" id="pass" placeholder="Please enter password">
 			</p>
 			<p>
-				<input type="submit" value="Log In" class ="btn btn-primary ">
+				<input type="submit" value="Log In" class ="btn btn-primary">
 			</p>
 		</form>
-		<a href="/signup">Don't have an account? Create one here</a>
+		<a class="login" href="/signup">Don't have an account? Create one here</a>
 <% include partials/footer.ejs %>

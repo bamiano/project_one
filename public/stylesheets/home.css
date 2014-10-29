@@ -1,0 +1,13 @@
+body { 
+  background: url(http://thewayoutrecovery.com/wp-content/uploads/2011/06/Jail.jpg) no-repeat center center fixed; 
+  -webkit-background-size: cover;
+  -moz-background-size: cover;
+  -o-background-size: cover;
+  background-size: cover;
+}
+
+h1 {
+	color: #eeeeee;
+	font-size: 80px;
+	font-style: bold, oblique;
+}
