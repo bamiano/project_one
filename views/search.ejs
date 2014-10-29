@@ -1,21 +1,39 @@
 <% include partials/header.ejs %>
 
+<script>
+	if(navigator.geolocation){
+		navigator.geolocation.getCurrentPosition(function(data){
+			var latInput = document.getElementById("lat")
+			latInput.value = data.coords.latitude
+			var longInput = document.getElementById("long")
+			longInput.value = data.coords.longitude
 
+		})
+	}
+</script>
 
 <h1>Start incriminating now!</h1>
 	<p>
 		Please enter a name and choose a crime type.
 	</p>
+	<form action="/addcrime" method = "POST">
+	<input type="hidden" id="lat"name="latitude">
+	<input type="hidden" id="long" name="longitude">
+	<input type="hidden" value="<%=TargetId %>" name="TargetId">
+	
 <% crimeData.forEach(function (data) {%>
 
-	<h4><li>Arrest Category: <%= data.properties.crime_type %></li></h4>
+	<h4><li>Arrest Category: <%= data.properties.crime_type %></li>
+	</h4>
+
 	<li> Date and Time of Incident: <%= data.properties.date_time %></li>
 
 	<li>Description of Incident: <%= data.properties.description %></li>
 	<li>Case Number: <%= data.properties.case_number %></li>
-
+	
+		<label for="crime">Choose this crime  &nbsp</label><input type="radio" name="id" value="<%= data.id %>" id="">
+			<input type="submit" value="submit">
 <%})%>
-
-
-
+		
+	</form>
 <% include partials/footer.ejs %>

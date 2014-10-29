@@ -8,11 +8,11 @@ module.exports = {
         primaryKey: true,
         type: DataTypes.INTEGER
       },
-      id: {
-        type: DataTypes.INTEGER
+      latitude: {
+        type: DataTypes.FLOAT
       },
-      coordinates: {
-        type: DataTypes.NUMBER
+      longitude: {
+        type: DataTypes.FLOAT
       },
       crime_type: {
         type: DataTypes.STRING
@@ -33,7 +33,11 @@ module.exports = {
       updatedAt: {
         allowNull: false,
         type: DataTypes.DATE
-      }
+      },
+      TargetId:{
+        type: DataTypes.INTEGER,
+        foreignKey: true
+      },
     }).done(done);
   },
   down: function(migration, DataTypes, done) {

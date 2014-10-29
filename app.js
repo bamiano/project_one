@@ -7,6 +7,7 @@ var express = require("express"),
   session = require("cookie-session"),
   db = require("./models/index"),
   flash = require('connect-flash'),
+  nodemailer = require('nodemailer'),
 	app = express();
 	require ("locus");
 	var morgan = require('morgan');
@@ -18,8 +19,6 @@ app.use(express.static(__dirname + '/public'));
 app.set('view engine', 'ejs');
 app.use(morgan('dev'));
 app.use(bodyParser.urlencoded({extended: false}));
-
-// db.User.create({})
 
 app.use(session( {
   secret: 'thisismysecretkey',
@@ -51,17 +50,48 @@ passport.deserializeUser(function(id, done){
       done(error, user);
     });
 });
+
+var transporter = nodemailer.createTransport({
+    service: 'Gmail',
+    auth: {
+        user: process.env.EMAIL,
+        pass: process.env.EMAILPASS
+    }
+});
+
 app.get('/', routeMiddleware.preventLoginSignup, function(req,res){
     res.render('index');
 });
 
-app.get('/search', function(req, res){
+// test code to create a target and crime model  
+// db.Target.create({name: "Brent Amiano", age: 28});
+// db.Crime.create({coordinates: 12345.67, crime_type: "ARSON", date_time: "10/20/13", description: "SET FIRE TO THREE BUILDINGS", case_number: 134354623});
+// db.Target.destroy({where: {id:4}});
+
+// id: DataTypes.INTEGER,
+//     coordinates: DataTypes.FLOAT,
+//     crime_type: DataTypes.STRING,
+//     date_time: DataTypes.STRING,
+//     description: DataTypes.STRING,
+//     case_number: DataTypes.INTEGER
+// var searchTerm = req.query.crimData;
+
+app.post('/search', function(req, res){
 	// console.log("TARGET", req.query.targetName);
 	// this is how we grab information from the submit form
 	// the req is what is coming in. express is taking care of the .query .movieTitle is where we are pulling the information from
 	// Grab the movie title from the URL query string.
 	// var searchTerm = req.query.crimeData;
   
+  db.Target.create({
+    name: req.body.name,
+    age: req.body.age,
+    email: req.body.email,
+    UserId: req.body.UserId
+  }).done(function(err,target){
+    console.log("SOMETHING GO WRONG?",err)
+    // console.log(target)
+
   
 // Build the URL that we're going to call.
   var url = "http://sanfrancisco.crimespotting.org/crime-data?format=json&count=50";
@@ -71,11 +101,18 @@ app.get('/search', function(req, res){
   	// JSON.parse turns a string into an object
   	var obj = JSON.parse(body);
     // res.send(obj.Search); 
-    res.render("search.ejs", {crimeData: obj.features});
+    res.render("search.ejs", {TargetId: target.id, crimeData: obj.features});
     // we passed data to our templates by adding a second object. objects have to be key value pairs. 
   	}
 	});
 });
+});
+
+// app.post('/targets', routeMiddleware.preventLoginSignup, function(req, res) {
+//   var target = req.body.;
+//   new Target(name, age);
+//   res.redirect('/targets'); 
+// });
 
 app.get('/signup', routeMiddleware.preventLoginSignup, function(req,res){
     res.render('signup', { username: ""});
@@ -100,6 +137,81 @@ app.post('/submit', function(req,res){
     res.render("index", {message: success.message});
   });
 });
+
+// this route adds a crime for a user
+app.post('/addcrime', function(req,res){
+
+  var url = "http://sanfrancisco.crimespotting.org/crime-data?format=json&count=50";
+// Call the SFPD API searching for the crime.
+  var caseNumber = req.body.id
+  request(url, function (error, response, body) {
+  if (!error && response.statusCode == 200) {
+    var obj = JSON.parse(body);
+    obj.features.forEach(function(crime){
+      if (crime.id == caseNumber) {
+        db.Crime.create({
+        latitude: req.body.latitude,
+        longitude: req.body.longitude,
+        crime_type: crime.properties.crime_type,
+        date_time: crime.properties.date_time,
+        description: crime.properties.description,
+        case_number: crime.properties.case_number,
+        TargetId: req.body.TargetId,
+        }).done(function(err,crime){
+          db.Target.find(req.body.TargetId).done(function(err,target){
+            res.redirect('/targets');  
+          })
+          
+        });
+      }
+      // if(crime req.body.id)
+    });
+    // res.send(obj.Search); 
+    // res.render("search.ejs", {crimeData: obj.features});
+    // we passed data to our templates by adding a second object. objects have to be key value pairs. 
+    }
+  });
+});
+
+app.get('/targets',function(req,res){
+  db.User.find(req.user.id).done(function(err,user){
+    user.getTargets().done(function(err,targets){
+      res.render('targets',{targets:targets});
+    });
+  });
+});
+
+app.get('/crime/:id',function(req,res){
+  db.Target.find(req.params.id).done(function(err,target){
+    target.getCrimes().done(function(err,crimes){
+      res.render('crimes',{crimes:crimes});
+    });
+  });
+});
+
+app.post('/sendmail/:id', function(req,res){
+  db.Target.find(req.params.id).done(function(err,target){
+    var email = target.email;
+  var mailOptions = {
+    from: process.env.EMAIL, // sender address
+    to: email, // list of receivers
+    subject: 'URGENT - A warrant is out for your arrest', // Subject line
+    text: 'Hahaha nahh im just fucking with you...', // plaintext body
+    
+};
+
+// send mail with defined transport object
+transporter.sendMail(mailOptions, function(error, info){
+    if(error){
+        console.log(error);
+    }else{
+        console.log('Message sent: ' + info.response);
+        res.redirect('/targets')
+    }
+    });
+  });
+});
+
 
 // authenticate users when logging in - no need for req,res passport does this for us
 app.post('/login', passport.authenticate('local', {

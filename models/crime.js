@@ -2,12 +2,13 @@
 
 module.exports = function(sequelize, DataTypes) {
   var Crime = sequelize.define("Crime", {
-    id: DataTypes.INTEGER,
-    coordinates: DataTypes.FLOAT,
+    latitude: DataTypes.FLOAT,
+    longitude: DataTypes.FLOAT,
     crime_type: DataTypes.STRING,
     date_time: DataTypes.STRING,
     description: DataTypes.STRING,
-    case_number: DataTypes.INTEGER
+    case_number: DataTypes.INTEGER,
+    TargetId: DataTypes.INTEGER
   }, {
     classMethods: {
       associate: function(models) {

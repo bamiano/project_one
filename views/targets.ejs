@@ -1,9 +1,23 @@
 <% include partials/header.ejs %>
 
+	<% targets.forEach(function(target){ %>
+		<p>
+			
+			<br>
+			<%= target.name %>
+			<br>
+			<a href="/crime/<%= target.id %>">See this person's crimes</a>
+			<br>
+			<%= target.age %>
+			<br>
+			<%= target.email %>
+			<br>
+			<form action="sendmail/<%= target.id %>" method = "POST">
+				<input type="submit" value="Send email">
+			</form>
+		</p>
+	<% }) %>
 
-
-
-
-
+	<a href="/">Go home</a>
 
 <% include partials/footer.ejs %>

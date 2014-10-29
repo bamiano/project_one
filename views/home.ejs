@@ -2,11 +2,30 @@
 
 <h1>Welcome! You have successfully logged in!</h1>
 
-<a class ="btn btn-primary" href="/logout">Logout here</a>
+<p>
+	<button class ="btn btn-danger btn-sm" href="/logout">Logout here</button>
+</p>
 
-<form method="get" action="/search">
-	<input type="text" name="targetName" value="Type name here" autofocus>
-	<button type="submit" class ="btn btn-danger" href="/targets">	</a>
+<a href="/targets">See your existing targets</a>
+
+<h2>Add a new target:</h2>
+<form method="POST" action="/search">
+	<p>
+		<label for="search">Name:</label>
+		<input type="text" required name="name" id = "search" placeholder="name...." autofocus>
+	</p>
+	<p>
+		<label for="age">Age:</label>
+		<input type="text" name="age" id = "age" placeholder="age...." autofocus>
+	</p>
+	<p>
+		<label for="email">Email:</label>
+		<input type="email" required name="email" id = "email" placeholder="email...." autofocus>
+	</p>
+	<p>
+	<input type="hidden" name="UserId" value ="<%= user.id %>">
+	<input type="submit" class ="btn btn-info btn-lg" value ="Incriminate here!">
+	</p>
 </form>
 
 

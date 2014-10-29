@@ -1,0 +1,18 @@
+<% include partials/header.ejs %>
+
+	<% crimes.forEach(function(crime){ %>
+		<p>
+			<br>
+			<%= crime.crime_type %>
+			<br>
+			<%= crime.date_time %>
+			<br>
+			<%= crime.description %>
+			<br>
+			<%= crime.case_number %>
+		</p>
+	<% }) %>
+
+	<a href="sendmail/targets">Go home</a>
+
+<% include partials/footer.ejs %>

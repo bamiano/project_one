@@ -14,6 +14,9 @@ module.exports = {
       age: {
         type: DataTypes.INTEGER
       },
+      email: {
+        type: DataTypes.STRING
+      },
       createdAt: {
         allowNull: false,
         type: DataTypes.DATE
@@ -22,9 +25,9 @@ module.exports = {
         allowNull: false,
         type: DataTypes.DATE
       },
-      crimeType: {
-        allowNull: false,
-        type: DataTypes.STRING
+      UserId:{
+        type: DataTypes.INTEGER,
+        foreignKey: true
       }
     }).done(done);
   },
