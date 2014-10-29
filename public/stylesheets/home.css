@@ -1,13 +1,40 @@
 body { 
-  background: url(http://thewayoutrecovery.com/wp-content/uploads/2011/06/Jail.jpg) no-repeat center center fixed; 
+  background: url(http://darkroom.baltimoresun.com/wp-content/uploads/2013/04/BCK-951-BS_F3.jpg) no-repeat center center fixed; 
   -webkit-background-size: cover;
   -moz-background-size: cover;
   -o-background-size: cover;
   background-size: cover;
+  text-shadow: 1px 1px 1px #000;
 }
 
 h1 {
 	color: #eeeeee;
 	font-size: 80px;
 	font-style: bold, oblique;
+	text-shadow: 1px 1px 1px #000;
+	padding-bottom: 30px;
 }
+
+h2 {
+	color: #c6c386;
+	font-size: 30px;
+	font-style: bold, oblique;
+	text-shadow: 1px 1px 1px #000;	
+}
+
+.nameagemail {
+	color: #eeeeee;
+	text-shadow: 1px 1px 1px #000;
+	font-size: 20px;
+}
+
+.link {
+	color: #eeeeee;
+	text-shadow: 1px 1px 1px #000;
+	font-size: 20px;
+}
+
+.btn {
+	color: #eeeeee;
+}
+

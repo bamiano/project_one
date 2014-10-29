@@ -4,20 +4,33 @@ body {
   -moz-background-size: cover;
   -o-background-size: cover;
   background-size: cover;
+  text-shadow: 1px 1px 1px #000;
 }
 
 h1 {
 	color: #eeeeee;
 	font-size: 80px;
 	font-style: bold, oblique;
+	text-shadow: 1px 1px 1px #000;
+	padding-bottom: 20px;
 }
 
 .userpass {	
+	padding-top: 20px;
 	color: #eeeeee;
 	font-size: 20px;
+	text-shadow: 1px 1px 1px #000;
 }
 
 .login {
 	color: #eeeeee;
 	font-size: 20px;
+	text-shadow: 1px 1px 1px #000;
 }
+
+.btn {
+	background: #eeeeee;
+	color: solid black;
+	font-size: 20px;
+}
+

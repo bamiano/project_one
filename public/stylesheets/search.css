@@ -9,24 +9,19 @@ body {
 
 h1 {
 	color: #eeeeee;
-	font-size: 80px;
+	font-size: 65px;
 	font-style: bold, oblique;
 	text-shadow: 1px 1px 1px #000;
 }
 
-.userpass {	
-	padding-top: 20px;
-	color: #eeeeee;
-	font-size: 20px;
+h4 {
+	color: #eeeeee;	
+	font-style: bold;
 	text-shadow: 1px 1px 1px #000;
 }
 
-.login {
-	color: #eeeeee;
-	font-size: 20px;
+li {
+	color: #eeeeee;	
+	font-style: bold;
 	text-shadow: 1px 1px 1px #000;
-}
-
-.btn.btn-default {
-	background-color: #c6c386;
 }

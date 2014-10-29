@@ -1,5 +1,7 @@
 <% include partials/header.ejs %>
 
+<link rel="stylesheet" type="text/css" href="/stylesheets/search.css"/>
+
 <script>
 	if(navigator.geolocation){
 		navigator.geolocation.getCurrentPosition(function(data){
@@ -14,7 +16,7 @@
 
 <h1>Start incriminating now!</h1>
 	<p>
-		Please enter a name and choose a crime type.
+		Choose a crime.
 	</p>
 	<form action="/addcrime" method = "POST">
 	<input type="hidden" id="lat"name="latitude">
