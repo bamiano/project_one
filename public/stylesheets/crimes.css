@@ -7,44 +7,32 @@ body {
   text-shadow: 1px 1px 1px #000;
 }
 
-h1 {
-	color: #eeeeee;
-	font-size: 65px;
-	font-weight: bold;
-	text-shadow: 1px 1px 1px #000;
-}
-
 h3 {
 	color: #c6c386;	
 	font-weight: bold;
 	text-shadow: 1px 1px 1px #000;
-	padding-top: 30px;
+	padding-top: 15px;
+
 }
 
 li {
 	color: #eeeeee;	
 	text-shadow: 1px 1px 1px #000;
 	font-size: 20px;
-	text-shadow: 1px 1px 1px #000;
-}
-
-.label {
-	color: #c6c386;
-	font-size: 20px;
-	text-shadow: 1px 1px 1px #000;
+	padding-top: 5px;
+	padding-bottom: 10px;
 }
 
 ul {
 	list-style-type: none;
 }
 
-input {
-	background: #c6c386;
-	font-weight: bold;
+.link {
+	color: #c6c386;	
+	text-shadow: 1px 1px 1px #000;
+	font-size: 20px;
+	text-decoration: underline;		
 }
-
-
-
 
 
 

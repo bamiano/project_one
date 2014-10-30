@@ -18,7 +18,7 @@ h1 {
 h2 {
 	color: #c6c386;
 	font-size: 30px;
-	font-style: bold, oblique;
+	font-weight: bold;
 	text-shadow: 1px 1px 1px #000;	
 }
 
@@ -34,7 +34,12 @@ h2 {
 	font-size: 20px;
 }
 
-.btn {
-	color: #eeeeee;
+.btn-warning {
+	/*background-color: #c6c386;*/
+	background: ##efeff2;
+	/*color: blue;*/
 }
 
+li {
+	list-style-type: none;
+}

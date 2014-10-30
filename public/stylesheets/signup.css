@@ -8,9 +8,9 @@ body {
 }
 
 h1 {
-	color: #eeeeee;
+	color: #c6c386;
 	font-size: 80px;
-	font-style: bold, oblique;
+	font-weight: bold;
 	text-shadow: 1px 1px 1px #000;
 }
 
@@ -22,11 +22,13 @@ h1 {
 }
 
 .login {
-	color: #eeeeee;
-	font-size: 20px;
+	color: #c6c386;
+	font-size: 25px;
 	text-shadow: 1px 1px 1px #000;
 }
 
-.btn.btn-default {
-	background-color: #c6c386;
+input.btn-default {
+	/*background-color: #c6c386;*/
+	background: ##efeff2;
+	/*color: blue;*/
 }

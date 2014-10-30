@@ -1,18 +1,34 @@
 <% include partials/header.ejs %>
 
+<link rel="stylesheet" type="text/css" href="/stylesheets/crimes.css"/>
+
 	<% crimes.forEach(function(crime){ %>
-		<p>
-			<br>
-			<%= crime.crime_type %>
-			<br>
-			<%= crime.date_time %>
-			<br>
-			<%= crime.description %>
-			<br>
-			<%= crime.case_number %>
-		</p>
+		<ul>
+			<h3>
+				Arrest Category: <%= crime.crime_type %>
+			</h3>
+
+			<li>
+				Date and Time of Incident: <%= crime.date_time %>
+			</li>
+			
+			<li>
+				Description of Incident: <%= crime.description %>
+			</li>
+
+			<li>
+				Case Number: <%= crime.case_number %>
+			</li>
+		</ul>
 	<% }) %>
 
-	<a href="sendmail/targets">Go home</a>
+	<br>
+
+	<a class="link" href="/">Go to homepage</a>
+
+	<br>
+	<br>
+
+	<a class="link" href="/">Return to previous page </a>
 
 <% include partials/footer.ejs %>

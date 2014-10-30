@@ -14,10 +14,7 @@
 	}
 </script>
 
-<h1>Start incriminating now!</h1>
-	<p>
-		Choose a crime.
-	</p>
+<h1>Pick a Crime</h1>
 	<form action="/addcrime" method = "POST">
 	<input type="hidden" id="lat"name="latitude">
 	<input type="hidden" id="long" name="longitude">
@@ -25,16 +22,26 @@
 	
 <% crimeData.forEach(function (data) {%>
 
-	<h4><li>Arrest Category: <%= data.properties.crime_type %></li>
-	</h4>
+	<h3>
+		Arrest Category: <%= data.properties.crime_type %>
+	</h3>
 
-	<li> Date and Time of Incident: <%= data.properties.date_time %></li>
+	<ul>
+	 	<li>
+	 		Date and Time of Incident: <%= data.properties.date_time %>
+	 	</li>
 
-	<li>Description of Incident: <%= data.properties.description %></li>
-	<li>Case Number: <%= data.properties.case_number %></li>
+		<li>
+			Description of Incident: <%= data.properties.description %>
+		</li>
 	
-		<label for="crime">Choose this crime  &nbsp</label><input type="radio" name="id" value="<%= data.id %>" id="">
-			<input type="submit" value="submit">
+		<li>
+			Case Number: <%= data.properties.case_number %>
+		</li>
+	</ul>
+	
+		<label class="label" for="crime">Choose this crime  &nbsp</label><input type="radio" name="id" value="<%= data.id %>"> &nbsp &nbsp
+			<input class="input" type="submit" value="Submit">
 <%})%>
 		
 	</form>

@@ -1,21 +1,32 @@
 <% include partials/header.ejs %>
 
+<link rel="stylesheet" type="text/css" href="/stylesheets/targets.css"/>
+
 	<% targets.forEach(function(target){ %>
-		<p>
+
+			<h3>
+				<%= target.name %>
+			</h3>
+
+			<ul>
+				<li>
+			 Age:&nbsp<%= target.age %>
+			 	</li>
 			
-			<br>
-			<%= target.name %>
-			<br>
-			<a href="/crime/<%= target.id %>">See this person's crimes</a>
-			<br>
-			<%= target.age %>
-			<br>
-			<%= target.email %>
-			<br>
+				<li>
+					<a class="link" href="/crime/<%= target.id %>">See this person's crimes</a>
+				</li>
+				
+				<li>
+					<%= target.email %>
+				</li>
+			
 			<form action="sendmail/<%= target.id %>" method = "POST">
 				<input type="submit" value="Send email">
 			</form>
-		</p>
+
+			</ul>
+		
 	<% }) %>
 
 	<a href="/">Go home</a>
