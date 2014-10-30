@@ -16,19 +16,20 @@
 				<li>
 					<a class="link" href="/crime/<%= target.id %>">See this person's crimes</a>
 				</li>
+
+				<form action="sendmail/<%= target.id %>" method = "POST">
+					<input type="submit" value="Send arrest report to:">
+				</form>
 				
 				<li>
 					<%= target.email %>
 				</li>
-			
-			<form action="sendmail/<%= target.id %>" method = "POST">
-				<input type="submit" value="Send email">
-			</form>
-
 			</ul>
 		
 	<% }) %>
 
-	<a href="/">Go home</a>
+	<a class= "link2" href="/">Go home</a>
+
+<div class="bottom"></div>
 
 <% include partials/footer.ejs %>

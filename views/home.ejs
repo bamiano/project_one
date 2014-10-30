@@ -2,13 +2,12 @@
 
 <link rel="stylesheet" type="text/css" href="/stylesheets/home.css"/>
 
-<h1>Welcome to Incriminate!</h1>
+<h1>Incriminate</h1>
+	<p id="first">
+		Incriminate was designed with the sole purpose of playing practical jokes on your friends.  Simply fill out the forms with a person's name and age, and this application will handle the rest.  Incriminate will generate a ficticious police report with the information you provide.  You can even send the report to anyone you want!
+	</p>
 
-<p>
-	<a class ="btn btn-warning" href="/logout">Logout here</a>
-</p>
-
-<a class="link" href="/targets">Click me to see your existing targets</a>
+<br>
 
 <h2>Add a new target:</h2>
 
@@ -22,14 +21,22 @@
 		<input type="text" name="age" id = "age" placeholder="age...." autofocus>
 	</p>
 	<p>
-		<label class="nameagemail" for="email">Email:</label>
+		<label class="nameagemail" for="email">Send Arrest Report to:</label>
 		<input type="email" required name="email" id = "email" placeholder="email...." autofocus>
 	</p>
 	<p>
 	<input type="hidden" name="UserId" value ="<%= user.id %>">
-	<input type="submit" class ="btn btn-info btn-lg" value ="Incriminate here!">
+	<input type="submit" class ="btn btn-default btn-lg" value ="Incriminate here!">
 	</p>
 </form>
+
+<br>
+
+<p>
+	<a class="btn btn-default btn-lg" href="/logout">Logout here</a>
+</p>
+
+<a class="link" href="/targets">Click here to see your existing targets</a>
 
 
 

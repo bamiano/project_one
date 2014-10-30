@@ -1,5 +1,5 @@
 body { 
-  background: url(http://www.ubfriends.org/wp-content/uploads/2012/04/jail.jpg) no-repeat center center fixed; 
+  background: url(http://nationwideradiojm.com/wp-content/uploads/2014/09/jail-break.jpg) no-repeat center center fixed; 
   -webkit-background-size: cover;
   -moz-background-size: cover;
   -o-background-size: cover;
@@ -28,7 +28,7 @@ ul {
 }
 
 .link {
-	color: #eeeeee;	
+	color: #c6c386;	
 	text-shadow: 1px 1px 1px #000;
 	font-size: 20px;
 	text-decoration: underline;		
@@ -37,6 +37,17 @@ ul {
 input {
 	background: #c6c386;
 	font-weight: bold;
+}
+
+.link2 {
+	text-shadow: 1px 1px 1px #000;
+	font-size: 40px;
+	color: #eeeeee;	
+	text-decoration: underline;	
+}
+
+.bottom {
+	padding-bottom: 200px;
 }
 
 

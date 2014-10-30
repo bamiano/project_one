@@ -1,5 +1,5 @@
 body { 
-  background: url(http://darkroom.baltimoresun.com/wp-content/uploads/2013/04/BCK-951-BS_F3.jpg) no-repeat center center fixed; 
+  background: url(http://www.ubfriends.org/wp-content/uploads/2012/04/jail.jpg) no-repeat center center fixed; 
   -webkit-background-size: cover;
   -moz-background-size: cover;
   -o-background-size: cover;
@@ -9,8 +9,8 @@ body {
 
 h1 {
 	color: #eeeeee;
-	font-size: 80px;
-	font-style: bold, oblique;
+	font-size: 55px;
+	font-weight: bold;
 	text-shadow: 1px 1px 1px #000;
 	padding-bottom: 30px;
 }
@@ -18,7 +18,6 @@ h1 {
 h2 {
 	color: #c6c386;
 	font-size: 30px;
-	font-weight: bold;
 	text-shadow: 1px 1px 1px #000;	
 }
 
@@ -31,15 +30,34 @@ h2 {
 .link {
 	color: #eeeeee;
 	text-shadow: 1px 1px 1px #000;
-	font-size: 20px;
-}
-
-.btn-warning {
-	/*background-color: #c6c386;*/
-	background: ##efeff2;
-	/*color: blue;*/
+	font-size: 25px;
+	text-decoration: underline;
 }
 
 li {
 	list-style-type: none;
 }
+
+p#first {
+	text-shadow: 1px 1px 1px #000;
+	font-size: 20px;
+	color: #c6c386;
+}
+
+input.btn {
+	background: #c6c386;
+	font-weight: bold;
+}
+
+a.btn {
+	background: #c6c386;
+	font-weight: bold;
+}
+
+
+
+
+
+
+
+
